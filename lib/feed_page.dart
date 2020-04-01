@@ -94,7 +94,8 @@ class _FeedPageState extends State<FeedPage> {
                 Row(
                   children: <Widget>[
                     Container(
-                      height: _height * 0.11,
+                      height: _height * 0.12,
+                      width: _width,
                       decoration: BoxDecoration(
                     color: Colors.black,
                     border: Border(
@@ -145,9 +146,10 @@ class _FeedPageState extends State<FeedPage> {
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   itemCount: posts.length,
+                   padding: EdgeInsets.only(bottom: 10),
                   itemBuilder: (context, index) {
                     return Container(
-                          height: _height * .9,
+                          height: _height,
                           width: _width,
                           color: Colors.black,
                           child: Padding(
@@ -155,86 +157,101 @@ class _FeedPageState extends State<FeedPage> {
                             child: Stack(
                               children: <Widget>[
                                     Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          Row(
-                                            children: <Widget>[
-                                              SizedBox(width: 10.0,),
-                                              CircleAvatar(
-                                                      radius: 14,
-                                                      backgroundColor: Colors.red,
-                                                        child: CircleAvatar(
-                                                        radius: 12,
-                                                        backgroundImage: AssetImage('images/image$index.jpg'), 
-                                                      ),
-                                                    ),
-                                                    SizedBox(width: 10.0,),
-                                                    Text(posts[index].name,
-                                                    style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontWeight: FontWeight.w500
-                                                    ),),
-                                            ],
-                                          ),
-                                          SizedBox(height: 10.0,),
-                                          Container(
-                                            height: _height * 0.5,
-                                            child: Image(image: AssetImage('images/post$index.jpg'), fit: BoxFit.cover),
-                                          ),
-                                          SizedBox(height: 10.0,),
-                                          Row(
-                                        children: <Widget>[
-                                          SizedBox(width: 10.0,),
-                                          Icon(Feather.heart, color: Colors.white),
-                                          SizedBox(width: 10.0,),
-                                          Icon(MaterialCommunityIcons.chat_outline, color: Colors.white),
-                                          SizedBox(width: 10.0,),
-                                          Icon(Feather.send, color: Colors.white),
-                                        ],
-                                      ),
-                                      SizedBox(height: 12.0,),
-                                       Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Row(
                                               children: <Widget>[
-                                                Row(
-                                                  children: <Widget>[
-                                                    SizedBox(width: 10.0,),
-                                                    Text(posts[index].likes,
-                                                        style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontWeight: FontWeight.w500
-                                                        ),),
-                                                        SizedBox(width: 5.0,),
-                                                    Text('likes',
-                                                        style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontWeight: FontWeight.w500
-                                                        ),), 
-                                                  ],
-                                                ),
-                                                SizedBox(height: 5.0),
-                                                Row(
-                                                  children: <Widget>[
-                                                    SizedBox(width: 10.0,),
-                                                    Text(posts[index].name,
-                                                        style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontWeight: FontWeight.w500
-                                                        ),),
-                                                        Text(posts[index].desc,
-                                                        style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontWeight: FontWeight.w500
-                                                        ),),
-                                                  ],
-                                                ),
+                                                SizedBox(width: 10.0,),
+                                                CircleAvatar(
+                                                        radius: 14,
+                                                        backgroundColor: Colors.red,
+                                                          child: CircleAvatar(
+                                                          radius: 12,
+                                                          backgroundImage: AssetImage('images/image$index.jpg'), 
+                                                        ),
+                                                      ),
+                                                      SizedBox(width: 10.0,),
+                                                      Text(posts[index].name,
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontWeight: FontWeight.w500
+                                                      ),),
                                               ],
                                             ),
-                                        ],
-                                      ),
+                                            SizedBox(height: 10.0,),
+                                            Container(
+                                              height: _height * 0.55,
+                                              child: Image(image: AssetImage('images/post$index.jpg'), fit: BoxFit.cover),
+                                            ),
+                                            SizedBox(height: 10.0,),
+                                            Row(
+                                          children: <Widget>[
+                                            SizedBox(width: 10.0,),
+                                            Icon(Feather.heart, color: Colors.white),
+                                            SizedBox(width: 10.0,),
+                                            Icon(MaterialCommunityIcons.chat_outline, color: Colors.white),
+                                            SizedBox(width: 10.0,),
+                                            Icon(Feather.send, color: Colors.white),
+                                          ],
+                                        ),
+                                        SizedBox(height: 12.0,),
+                                         Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  Row(
+                                                    children: <Widget>[
+                                                      SizedBox(width: 10.0,),
+                                                      Text(posts[index].likes,
+                                                          style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 18.0,
+                                                            fontWeight: FontWeight.w500
+                                                          ),),
+                                                          SizedBox(width: 5.0,),
+                                                      Text('likes',
+                                                          style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 18.0,
+                                                            fontWeight: FontWeight.w500
+                                                          ),), 
+                                                    ],
+                                                  ),
+                                                  SizedBox(height: 10.0),
+                                                      Row(
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                          children: <Widget>[
+                                                            SizedBox(width: 10.0,),
+                                                              Text(posts[index].name,
+                                                                  style: TextStyle(
+                                                                    color: Colors.white,
+                                                                    fontSize: 18.0,
+                                                                    fontWeight: FontWeight.bold
+                                                                  ),),
+                                                                SizedBox(width: 10.0,),
+                                                                Text(posts[index].desc,
+                                                                style: TextStyle(
+                                                                  fontSize: 16.0,
+                                                                  color: Colors.white,
+                                                                ),),
+                                                          ],
+                                                        ),
+                                                        SizedBox(height: 5.0,),
+                                                      Padding(
+                                                        padding: const EdgeInsets.only(left: 10.0),
+                                                        child: Text('View all 234 comments',
+                                                        style: TextStyle(
+                                                          color: Colors.grey,
+                                                          fontSize: 18.0,
+                                                        ),),
+                                                      ),
+                                                      
+                                                ],
+                                              ),
+                                          ],
+                                        ),
                                     Positioned(
                                       right: 20.0,
-                                      bottom: 213.0,
+                                      bottom: 252.0,
                                       child: Icon(Feather.bookmark,
                                       size: 25.0,
                                       color: Colors.white,)),
