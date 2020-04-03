@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'models/post.dart';
+import 'package:insta/models/post.dart';
+import 'package:insta/models/story.dart';
+import 'package:insta/models/bottombar.dart';
 
 class FeedPage extends StatefulWidget {
 
@@ -12,46 +14,12 @@ class FeedPage extends StatefulWidget {
 
 Color _iconwhite = Colors.white;
 
-class Story {
-  String name;
-  String image;
-
-  Story (String name, String image) {
-    this.name = name;
-    this.image = image;
-  }
-}
 
 
 
-class _FeedPageState extends State<FeedPage> {
+class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin<FeedPage>  {
 
-   List<Story> stories = List();
-
-   _FeedPageState() {
-     stories.add(
-       Story('Your Story', 'images/image0.jpg'),
-     );
-     stories.add(
-       Story('John23', 'images/image1.jpg'),
-     );
-     stories.add(
-       Story('Tyler222', 'images/image2.jpg'),
-     );
-     stories.add(
-       Story('Robert_43', 'images/image3.jpg'),
-     );
-     stories.add(
-       Story('JessicaSmith', 'images/image4.jpg'),
-     );
-     stories.add(
-       Story('RogerS', 'images/image5.jpg'),
-     );
-     stories.add(
-       Story('Kelsey383', 'images/image6.jpg'),
-     );
-   }
-
+   int _index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -202,7 +170,7 @@ class _FeedPageState extends State<FeedPage> {
                                             SizedBox(width: 0.0,),
                                             Icon(MaterialCommunityIcons.chat_outline, color: Colors.white, size: 25.0),
                                             SizedBox(width: 10.0,),
-                                            Icon(Feather.send, color: Colors.white, size: 25.0),
+                                            Icon(Feather.send, color: Colors.white, size: 23.0),
                                           ],
                                             ),
                                         SizedBox(height: 3.0,),
@@ -293,7 +261,7 @@ class _FeedPageState extends State<FeedPage> {
                                       right: 20.0,
                                       bottom: 180.0,
                                       child: Icon(Feather.bookmark,
-                                      size: 26.0,
+                                      size: 25.0,
                                       color: Colors.white,)),
                                     Positioned(
                                       right: 20.0,
@@ -313,6 +281,22 @@ class _FeedPageState extends State<FeedPage> {
       ),
       
           backgroundColor: Colors.black,
+          bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _index,
+        onTap: (int index) {
+          setState(() {
+            _index = index;
+          });
+        },
+        items: allDestinations.map((Destination destination) {
+          return BottomNavigationBarItem(
+            icon: Icon(destination.icon, size: 24,),
+            title: Text(''),
+            backgroundColor: Colors.black
+          );   
+        }).toList(),
+
+      ),
         );
   }
 }
