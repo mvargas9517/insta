@@ -14,6 +14,8 @@ class FeedPage extends StatefulWidget {
 
 Color _iconwhite = Colors.white;
 
+//Also add bottom bar model
+
 
 
 
@@ -26,6 +28,7 @@ class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin<FeedP
 
     final _height = MediaQuery.of(context).size.height;
     final _width = MediaQuery.of(context).size.width;
+
 
     return Scaffold(
           body: Container(
@@ -63,6 +66,9 @@ class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin<FeedP
                     ),
                   ),
                 ),
+
+                //Add the Story model
+
                 Row(
                   children: <Widget>[
                     Container(
@@ -112,17 +118,21 @@ class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin<FeedP
                     ),
                   ],
                 ),
+
+                //Add the Post model
+
+
                 Container(
-                height: _height,
-                width: _width,
+                constraints: BoxConstraints(
+                  maxHeight: _height * 0.74,
+                ),
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   itemCount: post.length,
                    padding: EdgeInsets.only(bottom: 10),
                   itemBuilder: (context, index) {
                     return Container(
-                          height: _height * 0.91,
-                          width: _width,
+                          height: _height * 0.9,
                           color: Colors.black,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 8.0),
@@ -150,9 +160,9 @@ class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin<FeedP
                                                       ),),
                                               ],
                                             ),
-                                            SizedBox(height: 12.0,),
+                                            SizedBox(height: 10.0,),
                                             Container(
-                                              height: _height * 0.55,
+                                              height: _height * 0.56,
                                               child: Image(image: AssetImage('images/post$index.jpg'), fit: BoxFit.cover),
                                             ),
                                             Row(
@@ -173,13 +183,12 @@ class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin<FeedP
                                             Icon(Feather.send, color: Colors.white, size: 23.0),
                                           ],
                                             ),
-                                        SizedBox(height: 3.0,),
                                          Column(
                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: <Widget>[
                                                   Row(
                                                     children: <Widget>[
-                                                      SizedBox(width: 10.0,),
+                                                      SizedBox(width: 9.0,),
                                                       Text(post[index].likes,
                                                           style: TextStyle(
                                                             color: Colors.white,
@@ -195,7 +204,7 @@ class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin<FeedP
                                                           ),), 
                                                     ],
                                                   ),
-                                                  SizedBox(height: 12.0),
+                                                  SizedBox(height: 10.0),
                                                       Row(
                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                           children: <Widget>[
@@ -259,7 +268,7 @@ class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin<FeedP
                                         ),
                                     Positioned(
                                       right: 20.0,
-                                      bottom: 180.0,
+                                      bottom: 172.0,
                                       child: Icon(Feather.bookmark,
                                       size: 25.0,
                                       color: Colors.white,)),

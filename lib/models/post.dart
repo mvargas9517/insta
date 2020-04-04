@@ -13,9 +13,9 @@ class Post {
 final List <Post> post = [
   Post(
     'John23',
+    'This is amazing! Awesome View!!!',
     'images/post0.jpg',
     'images2/image20.jpg',
-    'This is amazing! Awesome View!!!',
     '1,012',
     'hhfikdsajbfdkjsbaggreigrewuiajgewabuig\nfbeiwau',
     '45 mins ago',
